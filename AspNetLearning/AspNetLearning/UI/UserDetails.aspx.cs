@@ -16,16 +16,9 @@ namespace AspNetLearning.UI
             
         }
 
-
-        // The return type can be changed to IEnumerable, however to support
-        // paging and sorting, the following parameters must be added:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
         public UserBO GetUserDetails(int? userId)
         {
-          return new UserBO { FirstName = "First", LastName = "Lastson", Alias = "Mr X", RegistrationDate = new DateTime(1, 1, 1) };
+            return new UserReader().GetUserById(1);
         }
     }
 }

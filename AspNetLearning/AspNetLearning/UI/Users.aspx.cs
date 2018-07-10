@@ -38,10 +38,10 @@ namespace AspNetLearning.UI
             }
         }
 
-        private static List<UserBO> GetUsers()
+        private static IEnumerable<UserBO> GetUsers()
         {
             var userReader = new UserReader();
-            return userReader.getUsers();
+            return userReader.GetAllUsers();
         }
 
         private static DataTable SetUpDataTable()

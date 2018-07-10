@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\patrik.haar\Documents\My Web Sites\ASP.NET-learning\AspNetLearning\AspNetLearning\DAL\AWModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\david.gustafsson\Documents\Git\ASP.NET-learning\AspNetLearning\AspNetLearning\DAL\AWModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

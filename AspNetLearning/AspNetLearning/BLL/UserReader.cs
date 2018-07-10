@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebGrease.Css.Extensions;
 
 namespace AspNetLearning.BLL
 {
@@ -20,14 +21,24 @@ namespace AspNetLearning.BLL
 
         }
 
-        public List<UserBO> getUsers()
+        public UserBO GetUserById(int userId)
         {
-            List<UserBO> users = new List<UserBO>
+            using (var context = new aspnet_learningEntities())
             {
-                new UserBO {Alias = "Slim Jim", FirstName = "Jimmy", LastName = "Tim", RegistrationDate = DateTime.Now},
-                new UserBO {Alias = "Slim Jim2", FirstName = "Jimmy2", LastName = "Tim2", RegistrationDate = DateTime.Now}
-            };
-            return users;
+                var repository = new UserRepository(context);
+                var DALUser = repository.GetUserById(userId);
+                return new UserBO(DALUser.id, DALUser.alias, DALUser.first_name, DALUser.last_name, DALUser.registration_date);
+            }
+        }
+
+        public IEnumerable<UserBO> GetAllUsers()
+        {
+            using (var context = new aspnet_learningEntities())
+            {
+                var repository = new UserRepository(context);
+                var rawUsers = repository.GetAllUsers();
+                return rawUsers.Select(u => new UserBO(u.id, u.alias, u.first_name, u.last_name, u.registration_date));
+            }
         }
     }
 }
