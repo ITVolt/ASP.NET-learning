@@ -20,5 +20,14 @@ namespace AspNetLearning.BLL
 
         }
 
+        public List<UserBO> getUsers()
+        {
+            List<UserBO> users = new List<UserBO>
+            {
+                new UserBO {Alias = "Slim Jim", FirstName = "Jimmy", LastName = "Tim", RegistrationDate = DateTime.Now},
+                new UserBO {Alias = "Slim Jim2", FirstName = "Jimmy2", LastName = "Tim2", RegistrationDate = DateTime.Now}
+            };
+            return users;
+        }
     }
 }
