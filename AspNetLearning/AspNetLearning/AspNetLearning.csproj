@@ -241,6 +241,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\Repositories\UserRepository.cs" />
+    <Compile Include="BLL\UserBO.cs" />
     <Compile Include="BLL\UserReader.cs" />
     <Compile Include="BLL\UserWriter.cs" />
     <Compile Include="Contact.aspx.cs">
