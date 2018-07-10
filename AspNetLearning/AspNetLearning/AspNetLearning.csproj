@@ -164,6 +164,7 @@
     </Content>
     <Content Include="DB\contests_table.sql" />
     <Content Include="DB\contest_participants_table.sql" />
+    <Content Include="DB\create_tables.sql" />
     <Content Include="DB\setup.sql" />
     <Content Include="DB\user_table.sql" />
     <Content Include="Default.aspx" />
@@ -218,6 +219,10 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="UI\Contests.aspx" />
+    <Content Include="UI\UserDetails.aspx" />
+    <Content Include="UI\Users.aspx" />
+    <Content Include="UI\Welcome.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -235,6 +240,9 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\Repositories\UserRepository.cs" />
+    <Compile Include="BLL\UserReader.cs" />
+    <Compile Include="BLL\UserWriter.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,6 +298,34 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Contests.aspx.cs">
+      <DependentUpon>Contests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Contests.aspx.designer.cs">
+      <DependentUpon>Contests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Welcome.aspx.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Welcome.aspx.designer.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
