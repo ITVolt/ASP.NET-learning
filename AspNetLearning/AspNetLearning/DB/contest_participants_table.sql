@@ -6,7 +6,8 @@ BEGIN
 	score INT,
 	placement INT CHECK(placement > 0),
 	FOREIGN KEY (user_id) REFERENCES users(id),
-	FOREIGN KEY (contest_id) REFERENCES contests(id)) 
+	FOREIGN KEY (contest_id) REFERENCES contests(id),
+	PRIMARY KEY (user_id, contest_id)) 
 END;
 
 
