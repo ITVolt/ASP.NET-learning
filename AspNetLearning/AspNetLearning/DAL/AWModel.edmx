@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="aspnet_learningModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\PATRIK.HAAR\DOCUMENTS\MY WEB SITES\ASP.NET-LEARNING\ASPNETLEARNING\ASPNETLEARNING\APP_DATA\ASPNET_LEARNING.MDF.dbo.contest_participations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="contest_participations">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="contest_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="contest_id" Type="int" Nullable="false" />
+          <Property Name="score" Type="int" />
+          <Property Name="placement" Type="int" />
+        </EntityType>
+        <EntityType Name="contests">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="food_item" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alias" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="255" />
+          <Property Name="last_name" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="registration_date" Type="datetime" Nullable="false" />
+          <Property Name="last_active" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__contest_p__conte__286302EC">
+          <End Role="contests" Type="Self.contests" Multiplicity="1" />
+          <End Role="contest_participations" Type="Self.contest_participations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contests">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contest_participations">
+              <PropertyRef Name="contest_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contest_p__user___276EDEB3">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="contest_participations" Type="Self.contest_participations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contest_participations">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="aspnet_learningModelStoreContainer">
+          <EntitySet Name="contests" EntityType="Self.contests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contest_participations" EntityType="Self.contest_participations" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [contest_participations].[user_id] AS [user_id], 
+    [contest_participations].[contest_id] AS [contest_id], 
+    [contest_participations].[score] AS [score], 
+    [contest_participations].[placement] AS [placement]
+    FROM [dbo].[contest_participations] AS [contest_participations]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__contest_p__conte__286302EC" Association="Self.FK__contest_p__conte__286302EC">
+            <End Role="contests" EntitySet="contests" />
+            <End Role="contest_participations" EntitySet="contest_participations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contest_p__user___276EDEB3" Association="Self.FK__contest_p__user___276EDEB3">
+            <End Role="users" EntitySet="users" />
+            <End Role="contest_participations" EntitySet="contest_participations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="aspnet_learningModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="contests">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="food_item" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contest_participations" Relationship="Self.FK__contest_p__conte__286302EC" FromRole="contests" ToRole="contest_participations" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="alias" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="registration_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="last_active" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="contest_participations" Relationship="Self.FK__contest_p__user___276EDEB3" FromRole="users" ToRole="contest_participations" />
+        </EntityType>
+        <EntityType Name="contest_participations">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="contest_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="contest_id" Type="Int32" Nullable="false" />
+          <Property Name="score" Type="Int32" />
+          <Property Name="placement" Type="Int32" />
+          <NavigationProperty Name="contests" Relationship="Self.FK__contest_p__conte__286302EC" FromRole="contest_participations" ToRole="contests" />
+          <NavigationProperty Name="users" Relationship="Self.FK__contest_p__user___276EDEB3" FromRole="contest_participations" ToRole="users" />
+        </EntityType>
+        <Association Name="FK__contest_p__conte__286302EC">
+          <End Role="contests" Type="Self.contests" Multiplicity="1" />
+          <End Role="contest_participations" Type="Self.contest_participations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contests">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contest_participations">
+              <PropertyRef Name="contest_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contest_p__user___276EDEB3">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="contest_participations" Type="Self.contest_participations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contest_participations">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="aspnet_learningEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="contests" EntityType="Self.contests" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="contest_participations" EntityType="Self.contest_participations" />
+          <AssociationSet Name="FK__contest_p__conte__286302EC" Association="Self.FK__contest_p__conte__286302EC">
+            <End Role="contests" EntitySet="contests" />
+            <End Role="contest_participations" EntitySet="contest_participations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contest_p__user___276EDEB3" Association="Self.FK__contest_p__user___276EDEB3">
+            <End Role="users" EntitySet="users" />
+            <End Role="contest_participations" EntitySet="contest_participations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="aspnet_learningModelStoreContainer" CdmEntityContainer="aspnet_learningEntities">
+          <EntitySetMapping Name="contests">
+            <EntityTypeMapping TypeName="aspnet_learningModel.contests">
+              <MappingFragment StoreEntitySet="contests">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="food_item" ColumnName="food_item" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="aspnet_learningModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+                <ScalarProperty Name="last_active" ColumnName="last_active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contest_participations">
+            <EntityTypeMapping TypeName="aspnet_learningModel.contest_participations">
+              <MappingFragment StoreEntitySet="contest_participations">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="contest_id" ColumnName="contest_id" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="placement" ColumnName="placement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

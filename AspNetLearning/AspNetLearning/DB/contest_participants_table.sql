@@ -7,6 +7,6 @@ BEGIN
 	placement INT CHECK(placement > 0),
 	FOREIGN KEY (user_id) REFERENCES users(id),
 	FOREIGN KEY (contest_id) REFERENCES contests(id)) 
-END 
+END;
 
 
