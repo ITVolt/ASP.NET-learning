@@ -4,9 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="aspnet_learningModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\PATRIK.HAAR\DOCUMENTS\MY WEB SITES\ASP.NET-LEARNING\ASPNETLEARNING\ASPNETLEARNING\APP_DATA\ASPNET_LEARNING.MDF.dbo.contest_participations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+    <Schema Namespace="aspnet_learningModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="contest_participations">
           <Key>
             <PropertyRef Name="user_id" />
@@ -39,7 +37,7 @@ warning 6002: The table/view 'C:\USERS\PATRIK.HAAR\DOCUMENTS\MY WEB SITES\ASP.NE
           <Property Name="registration_date" Type="datetime" Nullable="false" />
           <Property Name="last_active" Type="datetime" />
         </EntityType>
-        <Association Name="FK__contest_p__conte__286302EC">
+        <Association Name="FK__contest_p__conte__38996AB5">
           <End Role="contests" Type="Self.contests" Multiplicity="1" />
           <End Role="contest_participations" Type="Self.contest_participations" Multiplicity="*" />
           <ReferentialConstraint>
@@ -51,7 +49,7 @@ warning 6002: The table/view 'C:\USERS\PATRIK.HAAR\DOCUMENTS\MY WEB SITES\ASP.NE
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__contest_p__user___276EDEB3">
+        <Association Name="FK__contest_p__user___37A5467C">
           <End Role="users" Type="Self.users" Multiplicity="1" />
           <End Role="contest_participations" Type="Self.contest_participations" Multiplicity="*" />
           <ReferentialConstraint>
@@ -64,27 +62,19 @@ warning 6002: The table/view 'C:\USERS\PATRIK.HAAR\DOCUMENTS\MY WEB SITES\ASP.NE
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="aspnet_learningModelStoreContainer">
+          <EntitySet Name="contest_participations" EntityType="Self.contest_participations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="contests" EntityType="Self.contests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="contest_participations" EntityType="Self.contest_participations" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [contest_participations].[user_id] AS [user_id], 
-    [contest_participations].[contest_id] AS [contest_id], 
-    [contest_participations].[score] AS [score], 
-    [contest_participations].[placement] AS [placement]
-    FROM [dbo].[contest_participations] AS [contest_participations]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__contest_p__conte__286302EC" Association="Self.FK__contest_p__conte__286302EC">
+          <AssociationSet Name="FK__contest_p__conte__38996AB5" Association="Self.FK__contest_p__conte__38996AB5">
             <End Role="contests" EntitySet="contests" />
             <End Role="contest_participations" EntitySet="contest_participations" />
           </AssociationSet>
-          <AssociationSet Name="FK__contest_p__user___276EDEB3" Association="Self.FK__contest_p__user___276EDEB3">
+          <AssociationSet Name="FK__contest_p__user___37A5467C" Association="Self.FK__contest_p__user___37A5467C">
             <End Role="users" EntitySet="users" />
             <End Role="contest_participations" EntitySet="contest_participations" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="aspnet_learningModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
