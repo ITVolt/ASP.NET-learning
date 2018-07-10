@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AspNetLearning.BLL;
 using AspNetLearning.BLL.BusinessObjects;
 
 namespace AspNetLearning.UI
@@ -52,14 +53,10 @@ namespace AspNetLearning.UI
 
         private IEnumerable<ContestBO> GetAllContests()
         {
-            var list = new Collection<ContestBO>
-            {
-                new ContestBO(1, "Hot Dog Damnation", "Hot Dogs", "My basement", DateTime.Parse("1337-08-08")),
-                new ContestBO(2, "Pie Extravaganza!", "Meat Pies", "Brunnsparken, Gothenburg", DateTime.Parse("2018-07-14")),
-                new ContestBO(3, "Pickles: The Reckoning", "Pickles", "Rick and Morty's garage", DateTime.Parse("2013-09-07"))
-            };
+            var reader = new ContestReader();
+            return reader.GetAllContests();
 
-            return list;
         }
+
     }
 }
