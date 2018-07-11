@@ -16,9 +16,5 @@ namespace AspNetLearning.UI
             
         }
 
-        public UserBO GetUserDetails(int? userId)
-        {
-            return new UserReader().GetUserById(1);
-        }
     }
 }
