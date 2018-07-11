@@ -18,7 +18,7 @@ namespace AspNetLearning.BLL.Repositories
 
         public List<contests> GetAllContests()
         {
-            return this._context.contests.ToList();
+            return this._context.contests.Include("contest_participations").ToList();
         }
 
         public contests GetContestById(int id)

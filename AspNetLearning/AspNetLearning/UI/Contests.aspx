@@ -20,6 +20,7 @@
             <asp:BoundField DataField="FoodType" HeaderText="Type of food"/>
             <asp:BoundField DataField="Location" HeaderText="Place"/>
             <asp:BoundField DataField="Date" HeaderText="Time"/>
+            <asp:BoundField DataField="NumberOfParticipants" HeaderText="Participants"/>
         </Columns>
     </asp:GridView>
 </asp:Content>

@@ -19,7 +19,13 @@ namespace AspNetLearning.BLL
                 var repository = new ContestRepository(context);
                 var contests = repository.GetAllContests();
 
-                return contests.Select(c => new ContestBO(c.id, c.name, c.food_item, c.location, c.date ?? new DateTime()));
+                return contests.Select(c => new ContestBO(
+                        c.id,
+                        c.name,
+                        c.food_item,
+                        c.location,
+                        c.date ?? new DateTime(),
+                        c.contest_participations.ToList().Count));
             }
         }
 
@@ -30,7 +36,13 @@ namespace AspNetLearning.BLL
                 var repository = new ContestRepository(context);
                 var DALContest = repository.GetContestById(contestId);
                 var contest = DALContest != null ?
-                    new ContestBO(DALContest.id, DALContest.name, DALContest.food_item, DALContest.location, DALContest.date ?? new DateTime()) :
+                    new ContestBO(
+                            DALContest.id,
+                            DALContest.name,
+                            DALContest.food_item,
+                            DALContest.location,
+                            DALContest.date ?? new DateTime(),
+                            DALContest.contest_participations.Count) :
                     null;
                 return contest;
             }

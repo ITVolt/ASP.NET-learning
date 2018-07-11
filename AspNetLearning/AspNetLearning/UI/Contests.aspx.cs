@@ -33,10 +33,11 @@ namespace AspNetLearning.UI
         private void CreateDataTable()
         {
             _dt = new DataTable();
-            _dt.Columns.Add("Name"/*, typeof(string[])*/);
+            _dt.Columns.Add("Name");
             _dt.Columns.Add("FoodType");
             _dt.Columns.Add("Location");
             _dt.Columns.Add("Date");
+            _dt.Columns.Add("NumberOfParticipants");
         }
 
         private void PopulateDataTable()
@@ -48,7 +49,8 @@ namespace AspNetLearning.UI
                     BuildNamedLinkToContest(contest),
                     contest.FoodItem,
                     contest.Location,
-                    contest.Date.ToString("yyyy MMMM dd"));
+                    contest.Date.ToString("yyyy MMMM dd"),
+                    contest.NumberOfParticipants);
             }
             ContestGridView.DataSource = _dt;
             ContestGridView.DataBind();
