@@ -65,6 +65,11 @@
             <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
 
         </ItemTemplate>
+        <EmptyDataTemplate>
+            <div class="alert alert-danger">
+                <strong>User not found!</strong>
+            </div>
+        </EmptyDataTemplate>
         <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
     </asp:FormView>

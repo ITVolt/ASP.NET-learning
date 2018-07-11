@@ -29,7 +29,7 @@ namespace AspNetLearning.BLL
                 var DALUser = repository.GetUserById(userId);
                 var user = DALUser != null ?
                     new UserBO(DALUser.id, DALUser.alias, DALUser.first_name, DALUser.last_name, DALUser.registration_date):
-                    new UserBO();
+                    null;
                 return user;
             }
         }
