@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br/>
     <br/>
-    <asp:GridView CssClass="table" ID="ContestGridView" runat="server" CellPadding="4" HorizontalAlign="Center" ForeColor="#333333" GridLines="None">
+    <asp:GridView CssClass="table" ID="ContestGridView" runat="server" CellPadding="4" HorizontalAlign="Center" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" />
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -14,5 +14,14 @@
         <SortedAscendingHeaderStyle BackColor="#6D95E1" />
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
+        
+        <Columns>
+            <asp:BoundField DataField="Name" HtmlEncode="False"
+                            DataFormatString="<a target='_blank' href='UserDetails?id={0}'>{0}</a>" />
+            <%--<asp:BoundField DataField="Name" HeaderText="Contest"/>--%>
+            <asp:BoundField DataField="FoodType" HeaderText="Type of food"/>
+            <asp:BoundField DataField="Location" HeaderText="Place"/>
+            <asp:BoundField DataField="Date" HeaderText="Time"/>
+        </Columns>
     </asp:GridView>
 </asp:Content>
