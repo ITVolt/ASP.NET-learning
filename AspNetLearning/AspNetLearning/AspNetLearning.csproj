@@ -243,7 +243,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\BusinessObjects\ContestBO.cs" />
     <Compile Include="BLL\ContestReader.cs" />
-    <Compile Include="BLL\*.cs" />
+    <Compile Include="BLL\ContestWriter.cs" />
     <Compile Include="BLL\Repositories\ContestRepository.cs" />
     <Compile Include="BLL\Repositories\UserRepository.cs" />
     <Compile Include="BLL\BusinessObjects\UserBO.cs" />
