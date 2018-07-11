@@ -10,8 +10,8 @@ namespace AspNetLearning.BLL
 {
     public class UserReader
     {
-        
-        public string GetAliasByUser( int userId)
+
+        public string GetAliasByUser(int userId)
         {
             using (var context = new aspnet_learningEntities())
             {
@@ -27,7 +27,10 @@ namespace AspNetLearning.BLL
             {
                 var repository = new UserRepository(context);
                 var DALUser = repository.GetUserById(userId);
-                return new UserBO(DALUser.id, DALUser.alias, DALUser.first_name, DALUser.last_name, DALUser.registration_date);
+                var user = DALUser != null ?
+                    new UserBO(DALUser.id, DALUser.alias, DALUser.first_name, DALUser.last_name, DALUser.registration_date):
+                    new UserBO();
+                return user;
             }
         }
 

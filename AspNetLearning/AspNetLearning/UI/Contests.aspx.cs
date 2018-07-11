@@ -33,10 +33,10 @@ namespace AspNetLearning.UI
         private void CreateDataTable()
         {
             _dt = new DataTable();
-            _dt.Columns.Add("Contest");
-            _dt.Columns.Add("Type of food");
-            _dt.Columns.Add("Place");
-            _dt.Columns.Add("Time");
+            _dt.Columns.Add("Name"/*, typeof(string[])*/);
+            _dt.Columns.Add("FoodType");
+            _dt.Columns.Add("Location");
+            _dt.Columns.Add("Date");
         }
 
         private void PopulateDataTable()
@@ -44,9 +44,15 @@ namespace AspNetLearning.UI
             var contests = GetAllContests();
             foreach (var contest in contests)
             {
-                _dt.Rows.Add(contest.Name, contest.FoodItem, contest.Location, contest.Date.ToString("yyyy MMMM dd"));
-            }
+                //var row = _dt.NewRow();
+                //row.SetField("name", new string[] { contest.Id.ToString(), contest.Name});
+                //row.SetField("FoodType", contest.FoodItem);
+                //row.SetField("Location", contest.Location);
+                //row.SetField("Date", contest.Date.ToString("yyyy MMMM dd"));
+                _dt.Rows.Add(contest.Id + "%" + contest.Name, contest.FoodItem, contest.Location, contest.Date.ToString("yyyy MMMM dd"));
 
+                //_dt.Rows.Add(row);
+            }
             ContestGridView.DataSource = _dt;
             ContestGridView.DataBind();
         }
