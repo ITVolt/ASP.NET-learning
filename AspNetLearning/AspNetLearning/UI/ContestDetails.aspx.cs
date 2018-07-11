@@ -31,9 +31,9 @@ namespace AspNetLearning.UI
             new ContestWriter().UpdateContest(contest);
         }
 
-        public void DeleteContestById(int contest)
+        public void DeleteContestById(ContestBO contest)
         {
-            new ContestWriter().DeleteContestById(contest);
+            new ContestWriter().DeleteContestById(contest.Id);
         }
     }
 }

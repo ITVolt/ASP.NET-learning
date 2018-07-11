@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h4 class="mx-auto">Contest</h4>
     <div class="well well-lg">
-    <asp:FormView ID="FormView2" runat="server" CellPadding="4" DataSourceID="ContestDataSource" ForeColor="#333333">
+    <asp:FormView ID="FormView2" runat="server" CellPadding="4" DataSourceID="ContestDataSource" ForeColor="#333333" DataKeyNames="Id">
         <EditItemTemplate>
             Id:
             <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />

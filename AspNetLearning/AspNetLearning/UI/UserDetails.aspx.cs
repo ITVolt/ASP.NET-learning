@@ -20,6 +20,11 @@ namespace AspNetLearning.UI
         {
 
         }
+
+        protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
+        {
+
+        }
     }
     public class UserDataProvider{
         public UserBO GetUserById(int userId)
@@ -30,6 +35,11 @@ namespace AspNetLearning.UI
         public void UpdateUser(UserBO user)
         {
             new UserWriter().UpdateUser(user);
+        }
+
+        public void DeleteUser(UserBO user)
+        {
+            new UserWriter().DeleteUser(user.Id);
         }
     }
 }
