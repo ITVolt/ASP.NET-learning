@@ -62,18 +62,21 @@
             <asp:Label ID="RegistrationDateLabel" runat="server" Text='<%# Bind("RegistrationDate") %>' />
             <br />
 
+            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+
         </ItemTemplate>
         <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
     </asp:FormView>
     </div>
-    <asp:ObjectDataSource ID="UserDataSource" runat="server" SelectMethod="GetUserById" TypeName="AspNetLearning.BLL.UserReader">
+    <asp:ObjectDataSource ID="UserDataSource" runat="server" SelectMethod="GetUserById" TypeName="AspNetLearning.UI.UserDataProvider" OnSelecting="UserDataSource_Selecting" DataObjectTypeName="AspNetLearning.BLL.UserBO" UpdateMethod="UpdateUser">
         <SelectParameters>
             <asp:QueryStringParameter DefaultValue="0" Name="userId" QueryStringField="id" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
+
     
     <div class="btn-group">
         <a class="btn btn-default" href="Users.aspx">Users</a>
-    </div>
-</asp:Content>
+        </div>
+    </asp:Content>

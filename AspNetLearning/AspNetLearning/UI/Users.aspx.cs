@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -28,11 +29,6 @@ namespace AspNetLearning.UI
             
         }
 
-        public void GridViewDataBound(object sender, GridViewRowEventArgs e)
-        {
-
-        }
-
 
         private static void PopulateTable(DataTable userTable)
         {
@@ -41,7 +37,9 @@ namespace AspNetLearning.UI
 
             foreach (var user in users)
             {
-                var aTag = string.Format("<a href=\"UserDetails?id='{1}'\">{0}</a>", user.Alias, user.Id);
+                // Removes tags from username 
+                var saferAlias = Regex.Replace(user.Alias, @"<[^>]*>", String.Empty);
+                var aTag = string.Format("<a href=\"UserDetails?id={1}\">{0}</a>", saferAlias, user.Id);
                 userTable.Rows.Add(aTag, user.FirstName, user.LastName, user.RegistrationDate);
 
 

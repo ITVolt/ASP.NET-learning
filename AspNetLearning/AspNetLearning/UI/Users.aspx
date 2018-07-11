@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br/>
     <br/>
-    <asp:GridView CssClass="table" ID="GridView1" runat="server" OnRowDataBound="GridViewDataBound" AutoGenerateColumns="False">
+    <asp:GridView CssClass="table" ID="GridView1" runat="server" AutoGenerateColumns="False">
         <Columns>
             <asp:BoundField DataField="Alias" HeaderText="Alias" HtmlEncode="False"/>
             <asp:BoundField DataField="First Name" HeaderText="First Name"/>

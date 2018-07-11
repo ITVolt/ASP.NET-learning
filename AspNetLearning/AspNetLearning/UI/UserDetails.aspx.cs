@@ -16,5 +16,20 @@ namespace AspNetLearning.UI
             
         }
 
+        protected void UserDataSource_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+        {
+
+        }
+    }
+    public class UserDataProvider{
+        public UserBO GetUserById(int userId)
+        {
+            return new UserReader().GetUserById(userId);
+        }
+
+        public void UpdateUser(UserBO user)
+        {
+            new UserWriter().UpdateUser(user);
+        }
     }
 }

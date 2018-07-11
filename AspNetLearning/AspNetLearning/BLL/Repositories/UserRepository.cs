@@ -24,5 +24,10 @@ namespace AspNetLearning.BLL.Repositories
         {
             return this._context.users.ToList();
         }
+
+        public void UpdateUser(users user)
+        {
+
+        }
     }
 }
