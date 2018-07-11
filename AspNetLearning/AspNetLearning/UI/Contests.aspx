@@ -16,9 +16,7 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
         
         <Columns>
-            <asp:BoundField DataField="Name" HtmlEncode="False"
-                            DataFormatString="<a target='_blank' href='UserDetails?id={0}'>{0}</a>" />
-            <%--<asp:BoundField DataField="Name" HeaderText="Contest"/>--%>
+            <asp:BoundField DataField="Name" HeaderText="Contest" HtmlEncode="False"/>
             <asp:BoundField DataField="FoodType" HeaderText="Type of food"/>
             <asp:BoundField DataField="Location" HeaderText="Place"/>
             <asp:BoundField DataField="Date" HeaderText="Time"/>

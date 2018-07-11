@@ -44,14 +44,11 @@ namespace AspNetLearning.UI
             var contests = GetAllContests();
             foreach (var contest in contests)
             {
-                //var row = _dt.NewRow();
-                //row.SetField("name", new string[] { contest.Id.ToString(), contest.Name});
-                //row.SetField("FoodType", contest.FoodItem);
-                //row.SetField("Location", contest.Location);
-                //row.SetField("Date", contest.Date.ToString("yyyy MMMM dd"));
-                _dt.Rows.Add(contest.Id + "%" + contest.Name, contest.FoodItem, contest.Location, contest.Date.ToString("yyyy MMMM dd"));
-
-                //_dt.Rows.Add(row);
+                _dt.Rows.Add(
+                    BuildNamedLinkToContest(contest),
+                    contest.FoodItem,
+                    contest.Location,
+                    contest.Date.ToString("yyyy MMMM dd"));
             }
             ContestGridView.DataSource = _dt;
             ContestGridView.DataBind();
@@ -64,5 +61,9 @@ namespace AspNetLearning.UI
 
         }
 
+        private string BuildNamedLinkToContest(ContestBO contest)
+        {
+            return $"<a href=\"UserDetails?id={contest.Id}\">{contest.Name}</a>";
+        }
     }
 }

@@ -69,7 +69,7 @@
     </div>
     <asp:ObjectDataSource ID="UserDataSource" runat="server" SelectMethod="GetUserById" TypeName="AspNetLearning.BLL.UserReader">
         <SelectParameters>
-            <asp:QueryStringParameter DefaultValue="0" Name="userId" QueryStringField="user" Type="Int32" />
+            <asp:QueryStringParameter DefaultValue="0" Name="userId" QueryStringField="id" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
     
