@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -25,16 +26,25 @@ namespace AspNetLearning.UI
             GridView1.DataSource = userTable;
             GridView1.DataBind();
             
+        }
+
+        public void GridViewDataBound(object sender, GridViewRowEventArgs e)
+        {
 
         }
+
 
         private static void PopulateTable(DataTable userTable)
         {
             var users = GetUsers();
+   
 
             foreach (var user in users)
             {
-                userTable.Rows.Add(user.Alias, user.FirstName, user.LastName, user.RegistrationDate);
+                var aTag = string.Format("<a href=\"UserDetails?id='{1}'\">{0}</a>", user.Alias, user.Id);
+                userTable.Rows.Add(aTag, user.FirstName, user.LastName, user.RegistrationDate);
+
+
             }
         }
 
@@ -47,7 +57,7 @@ namespace AspNetLearning.UI
         private static DataTable SetUpDataTable()
         {
             DataTable userTable = new DataTable();
-
+            
             var column = new DataColumn("Alias");
             var column2 = new DataColumn("First Name");
             var column3 = new DataColumn("Last Name");
