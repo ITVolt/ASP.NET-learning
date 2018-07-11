@@ -20,5 +20,10 @@ namespace AspNetLearning.BLL.Repositories
         {
             return this._context.contests.ToList();
         }
+
+        public contests GetContestById(int id)
+        {
+            return this._context.contests.Find(id);
+        }
     }
 }

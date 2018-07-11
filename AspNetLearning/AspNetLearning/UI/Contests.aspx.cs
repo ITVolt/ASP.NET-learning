@@ -63,7 +63,7 @@ namespace AspNetLearning.UI
 
         private string BuildNamedLinkToContest(ContestBO contest)
         {
-            return $"<a href=\"UserDetails?id={contest.Id}\">{contest.Name}</a>";
+            return $"<a href=\"ContestDetails?id={contest.Id}\">{contest.Name}</a>";
         }
     }
 }

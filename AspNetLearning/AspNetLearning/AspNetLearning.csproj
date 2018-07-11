@@ -222,6 +222,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="UI\Contests.aspx" />
+    <Content Include="UI\ContestDetails.aspx" />
     <Content Include="UI\UserDetails.aspx" />
     <Content Include="UI\Users.aspx" />
     <Content Include="UI\Welcome.aspx" />
@@ -312,6 +313,13 @@
     </Compile>
     <Compile Include="UI\Contests.aspx.designer.cs">
       <DependentUpon>Contests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContestDetails.aspx.cs">
+      <DependentUpon>ContestDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ContestDetails.aspx.designer.cs">
+      <DependentUpon>ContestDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
