@@ -13,6 +13,8 @@ namespace AspNetLearning.BLL.BusinessObjects
         public string Location { get; set; }
         public DateTime Date { get; set; }
 
+        public ContestBO(){}
+
         public ContestBO(int id, string name, string foodItem, string location, DateTime date)
         {
             this.Id = id;

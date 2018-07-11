@@ -11,13 +11,13 @@
             Name:
             <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
             <br />
-            Type of food:
-            <asp:TextBox ID="FoodTypeTextBox" runat="server" Text='<%# Bind("FoodItem") %>' />
+            FoodItem:
+            <asp:TextBox ID="FoodItemTextBox" runat="server" Text='<%# Bind("FoodItem") %>' />
             <br />
-            Place:
+            Location:
             <asp:TextBox ID="LocationTextBox" runat="server" Text='<%# Bind("Location") %>' />
             <br />
-            Time:
+            Date:
             <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("Date") %>' />
             <br />
             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
@@ -33,13 +33,13 @@
             Name:
             <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
             <br />
-            Type of food:
-            <asp:TextBox ID="FoodTypeTextBox" runat="server" Text='<%# Bind("FoodItem") %>' />
+            FoodItem:
+            <asp:TextBox ID="FoodItemTextBox" runat="server" Text='<%# Bind("FoodItem") %>' />
             <br />
-            Place:
+            Location:
             <asp:TextBox ID="LocationTextBox" runat="server" Text='<%# Bind("Location") %>' />
             <br />
-            Time:
+            Date:
             <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("Date") %>' />
             <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
@@ -52,16 +52,20 @@
             Name:
             <asp:Label ID="NameLabel" runat="server" Text='<%# Bind("Name") %>' />
             <br />
-            Type of food:
-            <asp:Label ID="FoodTypeLabel" runat="server" Text='<%# Bind("FoodItem") %>' />
+            FoodItem:
+            <asp:Label ID="FoodItemLabel" runat="server" Text='<%# Bind("FoodItem") %>' />
             <br />
-            Place:
+            Location:
             <asp:Label ID="LocationLabel" runat="server" Text='<%# Bind("Location") %>' />
             <br />
-            Time:
+            Date:
             <asp:Label ID="DateLabel" runat="server" Text='<%# Bind("Date") %>' />
             <br />
 
+            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+
+            &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+            
         </ItemTemplate>
         <EmptyDataTemplate>
             <div class="alert alert-danger">
@@ -72,10 +76,13 @@
         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
     </asp:FormView>
     </div>
-    <asp:ObjectDataSource ID="ContestDataSource" runat="server" SelectMethod="GetContestById" TypeName="AspNetLearning.BLL.ContestReader">
+    <asp:ObjectDataSource ID="ContestDataSource" runat="server" SelectMethod="GetContestById" TypeName="AspNetLearning.UI.ContestDataProvider" DataObjectTypeName="AspNetLearning.BLL.BusinessObjects.ContestBO" DeleteMethod="DeleteContestById" UpdateMethod="UpdateContest">
         <SelectParameters>
             <asp:QueryStringParameter DefaultValue="0" Name="contestId" QueryStringField="id" Type="Int32" />
         </SelectParameters>
+        <DeleteParameters>
+            <asp:Parameter Name="contest" Type="Int32" />
+        </DeleteParameters>
     </asp:ObjectDataSource>
     
     <div class="btn-group">
