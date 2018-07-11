@@ -165,6 +165,7 @@
     <Content Include="DB\contests_table.sql" />
     <Content Include="DB\contest_participants_table.sql" />
     <Content Include="DB\create_tables.sql" />
+    <Content Include="DB\generate_users.sql" />
     <Content Include="DB\generate_contests.sql" />
     <Content Include="DB\setup.sql" />
     <Content Include="DB\user_table.sql" />
