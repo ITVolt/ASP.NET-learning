@@ -12,7 +12,6 @@ namespace AspNetLearning.BLL
     {
         public void UpdateUser(UserBO user)
         {
-            Console.WriteLine("IT WORKS");
             using (var context = new aspnet_learningEntities())
             {
                 var rawUser = context.users.SingleOrDefault(u => u.id == user.Id);
@@ -21,6 +20,18 @@ namespace AspNetLearning.BLL
                     rawUser.alias = user.Alias;
                     rawUser.first_name = user.FirstName;
                     rawUser.last_name = user.LastName;
+                    context.SaveChanges();
+                }
+            }
+        }
+        internal void DeleteUser(int id)
+        {
+            using (var context = new aspnet_learningEntities())
+            {
+                var rawUser = context.users.SingleOrDefault(u => u.id == id);
+                if (rawUser != null)
+                {
+                    context.users.Remove(rawUser);
                     context.SaveChanges();
                 }
             }
