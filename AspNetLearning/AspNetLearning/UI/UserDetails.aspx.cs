@@ -29,7 +29,7 @@ namespace AspNetLearning.UI
 
         }
 
-        protected void GoToUsers__(object sender, EventArgs e)
+        protected void GoToUsers(object sender, EventArgs e)
         {
            Response.Redirect("~/UI/Users");
         }

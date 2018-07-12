@@ -5,11 +5,8 @@
     <div class="well well-lg">
         <table style="width:100%;">
             <tr>
-                <td><asp:FormView ID="FormView2" runat="server" CellPadding="4" DataSourceID="ContestDataSource" ForeColor="#333333" DataKeyNames="Id">
+                <td><asp:FormView ID="FormView2" runat="server" CellPadding="4" DataSourceID="ContestDataSource" ForeColor="#333333">
             <EditItemTemplate>
-                Id:
-                <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
-                <br />
                 Name:
                 <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
                 <br />
@@ -29,9 +26,6 @@
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
             <InsertItemTemplate>
-                Id:
-                <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
-                <br />
                 Name:
                 <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
                 <br />
@@ -45,7 +39,7 @@
                 <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("Date") %>' />
                 <br />
                 <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"/>
             </InsertItemTemplate>
             <ItemTemplate>
                 Id:
@@ -67,6 +61,8 @@
                 <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
 
                 &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                
+                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
                 
             </ItemTemplate>
             <EmptyDataTemplate>
@@ -162,13 +158,10 @@
         </table>
         
     </div>
-    <asp:ObjectDataSource ID="ContestDataSource" runat="server" SelectMethod="GetContestById" TypeName="AspNetLearning.UI.ContestDataProvider" DataObjectTypeName="AspNetLearning.BLL.BusinessObjects.ContestBO" DeleteMethod="DeleteContestById" UpdateMethod="UpdateContest">
+    <asp:ObjectDataSource ID="ContestDataSource" runat="server" SelectMethod="GetContestById" TypeName="AspNetLearning.UI.ContestDataProvider" DataObjectTypeName="AspNetLearning.BLL.BusinessObjects.ContestBO" DeleteMethod="DeleteContestById" UpdateMethod="UpdateContest" InsertMethod="InsertContest">
         <SelectParameters>
             <asp:QueryStringParameter DefaultValue="0" Name="contestId" QueryStringField="id" Type="Int32" />
         </SelectParameters>
-        <DeleteParameters>
-            <asp:Parameter Name="contest" Type="Int32" />
-        </DeleteParameters>
     </asp:ObjectDataSource>
     
     <div class="btn-group">

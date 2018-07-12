@@ -37,7 +37,7 @@
             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
             <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" OnClick="GoToUsers__" />
+            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" OnClick="GoToUsers" />
         </InsertItemTemplate>
         <ItemTemplate>
             Id:

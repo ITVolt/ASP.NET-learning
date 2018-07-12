@@ -23,4 +23,8 @@
             <asp:BoundField DataField="NumberOfParticipants" HeaderText="Participants"/>
         </Columns>
     </asp:GridView>
+
+    <div class="btn-group">
+        <a class="btn btn-default" href="ContestDetails.aspx?New">Add Contest</a>
+    </div>
 </asp:Content>

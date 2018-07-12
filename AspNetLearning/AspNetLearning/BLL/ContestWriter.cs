@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using AspNetLearning.BLL.BusinessObjects;
 using AspNetLearning.DAL;
+using Microsoft.Ajax.Utilities;
 
 namespace AspNetLearning.BLL
 {
@@ -29,9 +30,11 @@ namespace AspNetLearning.BLL
         {
             using (var context = new aspnet_learningEntities())
             {
+                var rawCp = context.contest_participations.Where(cp => cp.contest_id == contestId);
                 var rawCon = context.contests.SingleOrDefault(c => c.id == contestId);
                 if (rawCon == null) throw new NullReferenceException("The contest you tried to delete does not exist");
 
+                context.contest_participations.RemoveRange(rawCp);
                 context.contests.Remove(rawCon);
 
                 context.SaveChanges();
@@ -52,6 +55,16 @@ namespace AspNetLearning.BLL
 
                 context.contests.Add(rawCon);
 
+                context.SaveChanges();
+            }
+        }
+
+        public void NewContest(ContestBO contest)
+        {
+            using (var context = new aspnet_learningEntities())
+            {
+                var rawContest = new contests() { name = contest.Name, food_item = contest.FoodItem, location = contest.Location, date = contest.Date };
+                context.contests.Add(rawContest);
                 context.SaveChanges();
             }
         }
