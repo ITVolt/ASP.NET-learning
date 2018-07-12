@@ -13,7 +13,10 @@ namespace AspNetLearning.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (HttpContext.Current.Request.Url.Query.Equals("?New"))
+            {
+                FormView1.ChangeMode(FormViewMode.Insert);
+            }
         }
 
         protected void UserDataSource_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
@@ -24,6 +27,11 @@ namespace AspNetLearning.UI
         protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
         {
 
+        }
+
+        protected void GoToUsers__(object sender, EventArgs e)
+        {
+           Response.Redirect("~/UI/Users");
         }
     }
     public class UserDataProvider{
@@ -40,6 +48,11 @@ namespace AspNetLearning.UI
         public void DeleteUser(UserBO user)
         {
             new UserWriter().DeleteUser(user.Id);
+        }
+
+        public void InsertUser(UserBO user)
+        {
+            new UserWriter().NewUser(user);
         }
     }
 }

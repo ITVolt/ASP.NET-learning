@@ -29,6 +29,19 @@ namespace AspNetLearning.UI
             
         }
 
+        public void GridViewRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                HyperLink hlControl = new HyperLink();
+                var split = e.Row.Cells[0].Text.Split(new char[]{ ':' }, 2);
+                hlControl.NavigateUrl = "UserDetails?id=" + split[0];
+                hlControl.Text = split[1];
+                e.Row.Cells[0].Controls.Add(hlControl);
+            }
+
+        }
+
 
         private static void PopulateTable(DataTable userTable)
         {
@@ -38,9 +51,7 @@ namespace AspNetLearning.UI
             foreach (var user in users)
             {
                 // Removes tags from username 
-                var saferAlias = Regex.Replace(user.Alias, @"<[^>]*>", String.Empty);
-                var aTag = string.Format("<a href=\"UserDetails?id={1}\">{0}</a>", saferAlias, user.Id);
-                userTable.Rows.Add(aTag, user.FirstName, user.LastName, user.RegistrationDate);
+                userTable.Rows.Add(user.Id + ":" + user.Alias, user.FirstName, user.LastName, user.RegistrationDate);
 
 
             }
