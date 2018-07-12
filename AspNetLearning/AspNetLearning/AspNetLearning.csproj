@@ -253,6 +253,7 @@
     <Compile Include="BLL\BusinessObjects\UserBO.cs" />
     <Compile Include="BLL\UserReader.cs" />
     <Compile Include="BLL\UserWriter.cs" />
+    <Compile Include="BLL\Validation\ValidationHelper.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
