@@ -47,5 +47,27 @@ namespace AspNetLearning.BLL
                 return contest;
             }
         }
+
+        public IEnumerable<ContestParticipantBO> GetParticipantsFromContestById(int contestId)
+        {
+            using (var context = new aspnet_learningEntities())
+            {
+
+                var repository = new ContestRepository(context);
+                var rawParticipants = repository.GetParticipantsFromContestById(contestId);
+
+                return rawParticipants.Select(cp => new ContestParticipantBO(
+                        cp.score,
+                        cp.placement,
+                        new UserBO(
+                            cp.users.id,
+                            cp.users.alias,
+                            cp.users.first_name,
+                            cp.users.last_name,
+                            cp.users.registration_date),
+                        null ));
+
+            }
+        }
     }
 }

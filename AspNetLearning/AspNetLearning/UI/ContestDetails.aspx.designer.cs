@@ -10,7 +10,7 @@
 namespace AspNetLearning.UI {
     
     
-    public partial class UserDetails {
+    public partial class ContestDetails {
         
         /// <summary>
         /// FormView2 control.
@@ -20,6 +20,24 @@ namespace AspNetLearning.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FormView FormView2;
+        
+        /// <summary>
+        /// ParticipantsList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ParticipantsList;
+        
+        /// <summary>
+        /// ContestParticipantDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ContestParticipantDataSource;
         
         /// <summary>
         /// ContestDataSource control.

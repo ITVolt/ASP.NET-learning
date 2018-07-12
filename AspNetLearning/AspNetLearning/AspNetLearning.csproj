@@ -245,6 +245,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\BusinessObjects\ContestBO.cs" />
+    <Compile Include="BLL\BusinessObjects\ContestParticipantBO.cs" />
     <Compile Include="BLL\ContestReader.cs" />
     <Compile Include="BLL\ContestWriter.cs" />
     <Compile Include="BLL\Repositories\ContestRepository.cs" />

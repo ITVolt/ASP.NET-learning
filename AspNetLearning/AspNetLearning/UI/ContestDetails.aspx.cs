@@ -16,7 +16,6 @@ namespace AspNetLearning.UI
         {
             
         }
-
     }
 
     public class ContestDataProvider
@@ -34,6 +33,11 @@ namespace AspNetLearning.UI
         public void DeleteContestById(ContestBO contest)
         {
             new ContestWriter().DeleteContestById(contest.Id);
+        }
+
+        public ICollection<ContestParticipantBO> GetContestParticipantsById(int contestId)
+        {
+            return new List<ContestParticipantBO>(new ContestReader().GetParticipantsFromContestById(contestId));
         }
     }
 }
