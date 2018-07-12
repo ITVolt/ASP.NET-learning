@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br/>
     <br/>
-    <asp:GridView CssClass="table" ID="GridView1" runat="server" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
+    <asp:GridView CssClass="table" ID="GridView1" runat="server" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False"
+                  OnRowDataBound="GridViewRowDataBound">
         <AlternatingRowStyle BackColor="White" />
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -17,10 +18,13 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
 
         <Columns>
-            <asp:BoundField DataField="Alias" HeaderText="Alias" HtmlEncode="False"/>
+            <asp:BoundField DataField="Alias" HeaderText="Alias"/>
             <asp:BoundField DataField="First Name" HeaderText="First Name"/>
             <asp:BoundField DataField="Last Name" HeaderText="Last Name"/>
             <asp:BoundField DataField="Registration Date" HeaderText="Registration Date"/>
         </Columns>
     </asp:GridView>
-</asp:Content>
+    <div class="btn-group">
+        <a class="btn btn-default" href="UserDetails.aspx?New">Add User</a>
+    </div>
+    </asp:Content>

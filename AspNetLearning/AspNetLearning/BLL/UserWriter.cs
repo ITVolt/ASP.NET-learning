@@ -36,5 +36,15 @@ namespace AspNetLearning.BLL
                 }
             }
         }
+
+        public void NewUser(UserBO user)
+        {
+            using (var context = new aspnet_learningEntities())
+            {
+                var rawUser = new users(){alias = user.Alias, first_name = user.FirstName, last_name = user.LastName, registration_date = DateTime.Now};
+                context.users.Add(rawUser);
+                context.SaveChanges();
+            }
+        }
     }
 }
