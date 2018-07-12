@@ -29,5 +29,10 @@ namespace AspNetLearning.BLL.Repositories
         {
 
         }
+
+        public IEnumerable<contest_participations> GetContestsByUserId(int userId)
+        {
+            return this._context.contest_participations.Include("contests").Where(t => t.user_id == userId).ToList();
+        }
     }
 }

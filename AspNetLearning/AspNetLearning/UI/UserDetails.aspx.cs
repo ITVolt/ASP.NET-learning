@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AspNetLearning.BLL.BusinessObjects;
 
 namespace AspNetLearning.UI
 {
@@ -53,6 +54,11 @@ namespace AspNetLearning.UI
         public void InsertUser(UserBO user)
         {
             new UserWriter().NewUser(user);
+        }
+
+        public ICollection<ContestParticipantBO> GetContestsParticipationsById(int userId)
+        {
+            return new List<ContestParticipantBO>(new UserReader().GetContestsByUserId(userId));
         }
     }
 }
