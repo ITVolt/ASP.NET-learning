@@ -63,8 +63,30 @@ namespace AspNetLearning.BLL
         {
             using (var context = new aspnet_learningEntities())
             {
-                var rawContest = new contests() { name = contest.Name, food_item = contest.FoodItem, location = contest.Location, date = contest.Date };
+                var rawContest = new contests()
+                {
+                    name = contest.Name,
+                    food_item = contest.FoodItem,
+                    location = contest.Location,
+                    date = contest.Date
+                };
                 context.contests.Add(rawContest);
+                context.SaveChanges();
+            }
+        }
+
+        public void AddParticipation(ContestParticipantBO participant)
+        {
+            using (var context = new aspnet_learningEntities())
+            {
+                var rawCP = new contest_participations()
+                {
+                    user_id = participant.User.Id,
+                    contest_id = participant.Contest.Id,
+                    score = participant.Score,
+                    placement = participant.Placement
+                };
+                context.contest_participations.Add(rawCP);
                 context.SaveChanges();
             }
         }
