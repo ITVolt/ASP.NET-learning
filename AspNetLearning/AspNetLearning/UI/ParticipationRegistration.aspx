@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ParticipationRegistration.aspx.cs" Inherits="AspNetLearning.UI.ParticipationRegistration" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="width: 1200px; display: inline-block;">
-        <asp:ListView ID="UserListView" runat="server" DataSourceID="ObjectDataSource" OnSelectedIndexChanged="UserSelected" DataKeyNames="Id">
+    <div style="display: flex; flex-direction: row" >
+        <asp:ListView  ID="UserListView" runat="server" DataSourceID="ObjectDataSource" OnSelectedIndexChanged="UserSelected" DataKeyNames="Id">
             <AlternatingItemTemplate>
-                <tr style="">
+                <tr style="width: 500px">
                     <td>
                         <ItemTemplate>
                             <div>

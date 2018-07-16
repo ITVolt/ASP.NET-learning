@@ -166,5 +166,6 @@
 
     <div class="btn-group">
         <a class="btn btn-default" href="Contests.aspx">All contests</a>
+        <a class="btn btn-default" href="ParticipationRegistration?id=<%=Request.QueryString["id"]%>"> Add participant</a>
     </div>
 </asp:Content>

@@ -34,6 +34,11 @@ namespace AspNetLearning.UI
         {
            Response.Redirect("~/UI/Users");
         }
+
+        protected void FormView2_PageIndexChanging(object sender, FormViewPageEventArgs e)
+        {
+
+        }
     }
     public class UserDataProvider{
         public UserBO GetUserById(int userId)

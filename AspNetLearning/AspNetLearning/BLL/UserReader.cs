@@ -66,5 +66,14 @@ namespace AspNetLearning.BLL
                 ));
             }
         }
+
+        public IEnumerable<UserBO> GetNonParticipatingUsersById(int contest_id)
+        {
+            using (var context = new aspnet_learningEntities())
+            {
+                var repository = new UserRepository(context);
+                return repository.GetNonParticipatingUsersById(contest_id);
+            }
+        }
     }
 }

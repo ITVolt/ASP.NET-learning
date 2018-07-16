@@ -46,7 +46,7 @@ namespace AspNetLearning.UI
             foreach (var contest in contests)
             {
                 _dt.Rows.Add(
-                    BuildNamedLinkToContest(contest),
+                    contest.Id + ":" + contest.Name,
                     contest.FoodItem,
                     contest.Location,
                     contest.Date.ToString("yyyy MMMM dd"),
@@ -62,10 +62,17 @@ namespace AspNetLearning.UI
             return reader.GetAllContests();
 
         }
-
-        private string BuildNamedLinkToContest(ContestBO contest)
+        public void GridViewRowDataBound(object sender, GridViewRowEventArgs e)
         {
-            return $"<a href=\"ContestDetails?id={contest.Id}\">{contest.Name}</a>";
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                HyperLink hlControl = new HyperLink();
+                var split = e.Row.Cells[0].Text.Split(new char[] { ':' }, 2);
+                hlControl.NavigateUrl = "ContestDetails?id=" + split[0];
+                hlControl.Text = split[1];
+                e.Row.Cells[0].Controls.Add(hlControl);
+            }
+
         }
     }
 }

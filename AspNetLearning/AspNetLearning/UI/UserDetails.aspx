@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h4 class="mx-auto">User</h4>
     <div class="well well-lg">
-        <table>
+        <table style="width: 100%">
             <tr>
                 <td>
                     <asp:FormView ID="FormView1" runat="server" CellPadding="4" DataSourceID="ObjectDataSource1" ForeColor="#333333" DataKeyNames="Id" OnPageIndexChanging="FormView1_PageIndexChanging" ClientIDMode="AutoID">
@@ -75,7 +75,7 @@
 
                 </td>
 
-                <td>
+                <td style="float: right; padding-right: 20px">
                     <asp:ListView ID="ParticipantsList" runat="server" DataSourceID="ContestsDataSource">
                         <AlternatingItemTemplate>
                             <tr style="">
