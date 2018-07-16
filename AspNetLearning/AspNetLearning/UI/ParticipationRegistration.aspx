@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ParticipationRegistration.aspx.cs" Inherits="AspNetLearning.UI.ParticipationRegistration" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="display: flex; flex-direction: row" >
-        <asp:ListView  ID="UserListView" runat="server" DataSourceID="ObjectDataSource" OnSelectedIndexChanged="UserSelected" DataKeyNames="Id" EnableTheming="True">
-            
-            
+    <div style="display: flex; flex-direction: row">
+        <asp:ListView ID="UserListView" runat="server" DataSourceID="ObjectDataSource" OnSelectedIndexChanged="UserSelected" DataKeyNames="Id" EnableTheming="True">
+
+
             <EmptyDataTemplate>
                 <table runat="server" style="">
                     <tr>
@@ -14,9 +15,9 @@
             <ItemTemplate>
                 <tr style="">
                     <td>
-                        <ItemTemplate>
+                        <itemtemplate>
                             <asp:LinkButton id="lnkSelect" Text=">" CommandName="Select" Runat="server" />
-                        </ItemTemplate>
+                        </itemtemplate>
                     </td>
                     <td>
                         <asp:Label ID="AliasLabel" runat="server" Text='<%# Eval("Alias") %>' />
@@ -33,7 +34,6 @@
                 </tr>
             </ItemTemplate>
             <AlternatingItemTemplate>
-
             </AlternatingItemTemplate>
             <LayoutTemplate>
                 <table runat="server">
@@ -60,11 +60,11 @@
             <SelectedItemTemplate>
                 <tr style="background-color: #EFF3FB">
                     <td>
-                        <ItemTemplate>
+                        <itemtemplate>
                             <div>
                                 <asp:LinkButton id="lnkSelect" Text='>' CommandName="Select" Runat="server" />
                             </div>
-                        </ItemTemplate>
+                        </itemtemplate>
                     </td>
                     <td>
                         <asp:Label ID="AliasLabel" runat="server" Text='<%# Eval("Alias") %>' />
@@ -81,27 +81,27 @@
                 </tr>
             </SelectedItemTemplate>
         </asp:ListView>
-        
-        <asp:ObjectDataSource ID="ObjectDataSource" runat="server" SelectMethod="GetUserListData" TypeName="AspNetLearning.UI.ParticipationRegistration"></asp:ObjectDataSource>
-        
 
-        <asp:FormView ID="ParticipationFormView" runat="server" DefaultMode="Edit" DataKeyNames="Placement,Score" OnPageIndexChanging="ParticipationFormView_PageIndexChanging" Width="343px">
-            <EditItemTemplate>
-                <div style="display: flex; flex-direction: row; justify-content: center">
-                <p style="width: 71px">Placement:</p>
-                <asp:TextBox ID="PlacementTextBox" runat="server" Text='<%# Bind("Placement") %>'/>
-                <br/>
-                </div>
-                <div style="margin-top: 15px; display: flex; flex-direction: row; justify-content: center">
-                <p style="width: 71px">Score:</p>
-                <asp:TextBox ID="ScoreTextBox" runat="server" Text='<%# Bind("Score") %>'/>
-                <br/>
-                </div>
-            </EditItemTemplate>
-        </asp:FormView>
-        <div style="display: flex; flex-direction: column; justify-content: center">
-            <asp:Button ID="SaveButton" runat="server" CausesValidation="True" OnClick="OnSaveParticipationClicked" Text="Save" Visible="False"/>
+        <asp:ObjectDataSource ID="ObjectDataSource" runat="server" SelectMethod="GetUserListData" TypeName="AspNetLearning.UI.ParticipationRegistration"></asp:ObjectDataSource>
+
+        <div style="display: flex; flex-direction: column; justify-content: space-between">
+            <asp:FormView ID="ParticipationFormView" runat="server" DefaultMode="Edit" DataKeyNames="Placement,Score" OnPageIndexChanging="ParticipationFormView_PageIndexChanging" Width="343px">
+                <EditItemTemplate>
+                    <div style="display: flex; flex-direction: row; justify-content: flex-end">
+                        <p style="width: 71px">Placement:</p>
+                        <asp:TextBox ID="PlacementTextBox" runat="server" Text='<%# Bind("Placement") %>' />
+                        <br />
+                    </div>
+                    <div style="margin-top: 15px; display: flex; flex-direction: row; justify-content: flex-end">
+                        <p style="width: 71px">Score:</p>
+                        <asp:TextBox ID="ScoreTextBox" runat="server" Text='<%# Bind("Score") %>' />
+                        <br />
+                    </div>
+                </EditItemTemplate>
+            </asp:FormView>
+            <div style="display: flex; justify-content: flex-end; padding-top: 15px">
+                <asp:Button ID="SaveButton" runat="server" CausesValidation="True" OnClick="OnSaveParticipationClicked" Text="Save" Visible="False" />
+            </div>
         </div>
     </div>
-
 </asp:Content>
