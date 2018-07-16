@@ -77,7 +77,7 @@
                     <asp:ListView ID="ParticipantsList" runat="server" DataSourceID="ContestParticipantDataSource">
                         <AlternatingItemTemplate>
                             <tr style="border: none">
-                                <td style="text-align: right">
+                                <td>
                                     <asp:Label ID="PlacementLabel" runat="server" Text='<%# Eval("Placement") %>'/>
                                 </td>
                                 <td>
@@ -99,7 +99,7 @@
                         </EmptyDataTemplate>
                         <ItemTemplate>
                             <tr style="border: none">
-                                <td style="text-align: right">
+                                <td>
                                     <asp:Label ID="PlacementLabel" runat="server" Text='<%# Eval("Placement") %>'/>
                                 </td>
                                 <td>
@@ -134,7 +134,7 @@
                         </LayoutTemplate>
                         <SelectedItemTemplate>
                             <tr style="border: none">
-                                <td style="text-align: right">
+                                <td>
                                     <asp:Label ID="PlacementLabel" runat="server" Text='<%# Eval("Placement") %>'/>
                                 </td>
                                 <td>
