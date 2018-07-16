@@ -40,7 +40,22 @@ namespace AspNetLearning.BLL
             {
                 var repository = new UserRepository(context);
                 var rawUsers = repository.GetAllUsers();
-                return rawUsers.Select(u => new UserBO(u.id, u.alias, u.first_name, u.last_name, u.registration_date));
+                var userBos = rawUsers.Select(u =>
+                {
+                    var user = new UserBO(u.id, u.alias, u.first_name, u.last_name, u.registration_date);
+                    var contestParticipantBos = u.contest_participations.Select(c =>
+                        new ContestParticipantBO
+                        {
+                            Placement = c.placement,
+                            Score = c.score,
+                            User = user,
+                            Contest = new ContestBO {Id = c.contest_id}
+                        }).ToList();
+                    user.Participations = contestParticipantBos;
+                    return user;
+                }).ToList();
+
+                return userBos;
             }
         }
 

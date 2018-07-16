@@ -31,20 +31,22 @@ namespace AspNetLearning.UI
 
         public ICollection<UserBO> GetUserListData()
         {
-            if ((int)Session["contestId"] > 0)
-            {
-                return new UserReader().GetAllUsers().ToList();
-            }
-            return new List<UserBO>();
+            var contestId = (int) Session["contestId"];
+            return contestId <= 0
+                ? new List<UserBO>()
+                : new UserReader().GetAllUsers()
+                    .Where(u => !u.Participations.Any(p => (p.Contest.Id == contestId)))
+                    .ToList();
         }
 
         public void UserSelected(object sender, EventArgs eventArgs)
         {
             var listView = sender as ListView;
-            var user = new UserBO {Id = (int)listView.SelectedValue };
-            var contest = new ContestBO {Id = (int)Session["contestId"] };
+            var user = new UserBO {Id = (int) listView.SelectedValue};
+            var contest = new ContestBO {Id = (int) Session["contestId"]};
 
-            ParticipationFormView.DataSource = new List<ContestParticipantBO>() {new ContestParticipantBO(null, null, user, contest)};
+            ParticipationFormView.DataSource =
+                new List<ContestParticipantBO>() {new ContestParticipantBO(null, null, user, contest)};
             ParticipationFormView.DataBind();
         }
 
@@ -57,9 +59,9 @@ namespace AspNetLearning.UI
             var participant = new ContestParticipantBO(
                 score: int.Parse(scoreTextBox.Text),
                 placement: int.Parse(placementTextBox.Text),
-                user: new UserBO { Id = (int)UserListView.SelectedValue },
-                contest: new ContestBO { Id = (int)Session["contestId"] }
-                );
+                user: new UserBO {Id = (int) UserListView.SelectedValue},
+                contest: new ContestBO {Id = (int) Session["contestId"]}
+            );
             var participantList = ParticipationFormView.DataItem as List<ContestParticipantBO>;
             new ContestWriter().AddParticipation(participant);
         }

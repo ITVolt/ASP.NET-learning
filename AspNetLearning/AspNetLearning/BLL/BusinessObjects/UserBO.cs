@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Web;
+using AspNetLearning.BLL.BusinessObjects;
 
 namespace AspNetLearning.BLL
 {
@@ -14,6 +15,8 @@ namespace AspNetLearning.BLL
         [StringLength(255)] public string FirstName { get; set; }
         [StringLength(255)] public string LastName { get; set; }
         public DateTime RegistrationDate { get; set; }
+        public ICollection<ContestParticipantBO> Participations { get; set; }
+
 
         public UserBO()
         {
