@@ -1,7 +1,9 @@
 ﻿using AspNetLearning.BLL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.ModelBinding;
 using System.Web.UI;
@@ -33,11 +35,6 @@ namespace AspNetLearning.UI
         protected void GoToUsers(object sender, EventArgs e)
         {
            Response.Redirect("~/UI/Users");
-        }
-
-        protected void FormView2_PageIndexChanging(object sender, FormViewPageEventArgs e)
-        {
-
         }
     }
     public class UserDataProvider{
