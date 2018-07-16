@@ -40,7 +40,7 @@
                             <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("Date") %>'/>
                             <br/>
                             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert"/>
-                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"/>
+                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" OnClick="GoToContests"/>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             Id:
@@ -158,7 +158,7 @@
         </table>
 
     </div>
-    <asp:ObjectDataSource ID="ContestDataSource" runat="server" SelectMethod="GetContestById" TypeName="AspNetLearning.UI.ContestDataProvider" DataObjectTypeName="AspNetLearning.BLL.BusinessObjects.ContestBO" DeleteMethod="DeleteContestById" UpdateMethod="UpdateContest" InsertMethod="InsertContest">
+    <asp:ObjectDataSource ID="ContestDataSource" runat="server" SelectMethod="GetContestById" TypeName="AspNetLearning.UI.ContestDataProvider" DataObjectTypeName="AspNetLearning.BLL.BusinessObjects.ContestBO" DeleteMethod="DeleteContestById" UpdateMethod="UpdateContest" InsertMethod="InsertContest" OnDeleted="GoToContests" OnInserted="GoToContests">
         <SelectParameters>
             <asp:QueryStringParameter DefaultValue="0" Name="contestId" QueryStringField="id" Type="Int32"/>
         </SelectParameters>

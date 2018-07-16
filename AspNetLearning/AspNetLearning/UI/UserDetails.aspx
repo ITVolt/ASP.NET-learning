@@ -161,7 +161,7 @@
                 </td>
             </tr>
         </table>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DataObjectTypeName="AspNetLearning.BLL.UserBO" DeleteMethod="DeleteUser" SelectMethod="GetUserById" TypeName="AspNetLearning.UI.UserDataProvider" UpdateMethod="UpdateUser" InsertMethod="InsertUser">
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DataObjectTypeName="AspNetLearning.BLL.UserBO" OnDeleted="GoToUsers" OnInserted="GoToUsers" DeleteMethod="DeleteUser" SelectMethod="GetUserById" TypeName="AspNetLearning.UI.UserDataProvider" UpdateMethod="UpdateUser" InsertMethod="InsertUser">
             <SelectParameters>
                 <asp:QueryStringParameter DefaultValue="0" Name="userId" QueryStringField="id" Type="Int32"/>
             </SelectParameters>

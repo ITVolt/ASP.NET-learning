@@ -64,6 +64,8 @@ namespace AspNetLearning.UI
             );
             var participantList = ParticipationFormView.DataItem as List<ContestParticipantBO>;
             new ContestWriter().AddParticipation(participant);
+
+            Response.Redirect("ContestDetails?id=" + Session["contestId"]);
         }
     }
 }
