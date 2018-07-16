@@ -13,6 +13,33 @@ namespace AspNetLearning {
     public partial class SiteMaster {
         
         /// <summary>
+        /// ClockTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer ClockTimer;
+        
+        /// <summary>
+        /// ClockPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel ClockPanel;
+        
+        /// <summary>
+        /// ClockLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ClockLabel;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
