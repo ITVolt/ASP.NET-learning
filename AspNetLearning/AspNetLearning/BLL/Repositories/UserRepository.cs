@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using AspNetLearning.DAL;
+using Microsoft.Ajax.Utilities;
 
 namespace AspNetLearning.BLL.Repositories
 {
@@ -22,7 +24,9 @@ namespace AspNetLearning.BLL.Repositories
 
         public IEnumerable<users> GetAllUsers()
         {
-            return this._context.users.ToList();
+            return this._context.users
+                .Include(u=>u.contest_participations)
+                .ToList();
         }
 
         public void UpdateUser(users user)
@@ -32,7 +36,11 @@ namespace AspNetLearning.BLL.Repositories
 
         public IEnumerable<contest_participations> GetContestsByUserId(int userId)
         {
-            return this._context.contest_participations.Include("contests").Where(t => t.user_id == userId).ToList();
+            return this._context.contest_participations
+                .Include(cp => cp.contests)
+                .Where(t => t.user_id == userId)
+                .ToList();
+            
         }
 
         public IEnumerable<UserBO> GetNonParticipatingUsersById(int contestId)
