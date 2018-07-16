@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contests.aspx.cs" Inherits="AspNetLearning.UI.Contests" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <br/>
-    <br/>
     <asp:GridView CssClass="table" ID="ContestGridView" runat="server" CellPadding="4" HorizontalAlign="Center" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False"
                   OnRowDataBound="GridViewRowDataBound">
         <AlternatingRowStyle BackColor="White" />

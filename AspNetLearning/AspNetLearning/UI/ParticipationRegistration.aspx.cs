@@ -19,6 +19,7 @@ namespace AspNetLearning.UI
             try
             {
                 id = int.Parse(idParam);
+                
             }
             catch (Exception)
             {
@@ -46,6 +47,8 @@ namespace AspNetLearning.UI
 
             ParticipationFormView.DataSource = new List<ContestParticipantBO>() {new ContestParticipantBO(null, null, user, contest)};
             ParticipationFormView.DataBind();
+
+            SaveButton.Visible = true;
         }
 
         public void OnSaveParticipationClicked(object sender, EventArgs args)
@@ -64,6 +67,11 @@ namespace AspNetLearning.UI
             new ContestWriter().AddParticipation(participant);
 
             Response.Redirect("ContestDetails?id=" + Session["contestId"]);
+        }
+
+        protected void ParticipationFormView_PageIndexChanging(object sender, FormViewPageEventArgs e)
+        {
+
         }
     }
 }
