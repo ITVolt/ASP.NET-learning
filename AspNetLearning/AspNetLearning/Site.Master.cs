@@ -13,5 +13,10 @@ namespace AspNetLearning
         {
 
         }
+
+        protected void ClockTimer_Tick(object sender, EventArgs e)
+        {
+            ClockLabel.Text = System.DateTime.Now.ToString("T");
+        }
     }
 }

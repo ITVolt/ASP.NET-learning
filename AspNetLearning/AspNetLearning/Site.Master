@@ -39,7 +39,7 @@
         </asp:ScriptManager>
 
         <div class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom: 10px">
-            <div class="container">
+            <div class="container" style="display: flex">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
@@ -54,6 +54,17 @@
                         <li><a runat="server" href="~/UI/Users.aspx">Users</a></li>
                         <li><a runat="server" href="~/UI/Contests.aspx">Contests</a></li>
                     </ul>
+                </div>
+                <div style="align-self: center; margin-left: auto;">
+                    <asp:Timer runat="server" Interval="1000" ID="ClockTimer" OnTick="ClockTimer_Tick"></asp:Timer>
+                    <asp:UpdatePanel ID="ClockPanel" runat="server">
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="ClockTimer"/>
+                        </Triggers>
+                        <ContentTemplate>
+                            <asp:Label ID="ClockLabel" runat="server" ForeColor="#9d9d9d" Text="13:37"></asp:Label>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
             </div>
         </div>
