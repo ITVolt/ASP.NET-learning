@@ -224,6 +224,7 @@
     <Content Include="Site.Master" />
     <Content Include="UI\Contests.aspx" />
     <Content Include="UI\ContestDetails.aspx" />
+    <Content Include="UI\LoginPage.aspx" />
     <Content Include="UI\ParticipationRegistration.aspx" />
     <Content Include="UI\UserDetails.aspx" />
     <Content Include="UI\Users.aspx" />
@@ -324,6 +325,13 @@
     </Compile>
     <Compile Include="UI\ContestDetails.aspx.designer.cs">
       <DependentUpon>ContestDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\ParticipationRegistration.aspx.cs">
       <DependentUpon>ParticipationRegistration.aspx</DependentUpon>
