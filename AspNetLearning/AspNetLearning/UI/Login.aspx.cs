@@ -16,7 +16,11 @@ namespace AspNetLearning.UI
 
         protected void OnLoggingIn(object sender, LoginCancelEventArgs e)
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrEmpty(LoginForm.UserName))
+            {
+                Session.Add("User", LoginForm.UserName);
+                Session.Add("Authenticated", true);
+            }
         }
     }
 }
