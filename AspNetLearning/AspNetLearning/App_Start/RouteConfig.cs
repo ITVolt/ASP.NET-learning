@@ -13,6 +13,8 @@ namespace AspNetLearning
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+            routes.MapPageRoute("async", "async", "~/UI/Async/Async.aspx");
+            routes.MapPageRoute("login", "login", "~/UI/Login.aspx");
         }
     }
 }
