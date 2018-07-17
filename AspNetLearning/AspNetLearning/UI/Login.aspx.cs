@@ -13,5 +13,10 @@ namespace AspNetLearning.UI
         {
 
         }
+
+        protected void OnLoggingIn(object sender, LoginCancelEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
